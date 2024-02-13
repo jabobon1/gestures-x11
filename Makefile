@@ -5,7 +5,8 @@ CXX = g++
 CXXFLAGS = -Wall -g
 
 # Define any directories containing header files other than /usr/include
-INCLUDES =
+# Add the headers/ directory to the include path
+INCLUDES = -Iheaders/
 
 # Define library paths in addition to /usr/lib
 LFLAGS =
@@ -14,7 +15,8 @@ LFLAGS =
 LIBS = -linput -ludev -lX11 -lXtst
 
 # Define the source file(s)
-SRCS = gestures.cpp
+# Add source/functions.cpp to the list of source files
+SRCS = source/gestures.cpp source/functions.cpp
 
 # Define the executable file name
 MAIN = gesture_monitor
@@ -22,7 +24,7 @@ MAIN = gesture_monitor
 .PHONY: clean
 
 all:    $(MAIN)
-	@echo  Gesture monitor has been compiled
+	@echo Gesture monitor has been compiled
 
 $(MAIN): $(SRCS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(MAIN) $(SRCS) $(LFLAGS) $(LIBS)
