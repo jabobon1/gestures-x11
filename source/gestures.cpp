@@ -1,15 +1,11 @@
 #include <iostream>
 #include <libinput.h>
 #include <libudev.h>
-#include <fcntl.h>
-#include <unistd.h>
 #include <poll.h>
 #include <cstring>
 #include <chrono>
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
-#include <initializer_list>
-#include <vector>
 #include <../headers/functions.hpp>
 
 const int REACTION_THRESHOLD_MS = 350; // 350 ms
