@@ -16,7 +16,7 @@ LIBS = -linput -ludev -lX11 -lXtst
 
 # Define the source file(s)
 # Add source/functions.cpp to the list of source files
-SRCS = source/gestures.cpp source/functions.cpp
+SRCS = source/GesturesMonitor.cpp source/functions.cpp
 
 # Define the executable file name
 MAIN = gesture_monitor
