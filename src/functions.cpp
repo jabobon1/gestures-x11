@@ -12,12 +12,12 @@
 #include <vector>
 #include <../include/functions.hpp>
 
-std::chrono::_V2::system_clock::time_point getDateNow()
+std::chrono::system_clock::time_point  getDateNow()
 {
     return std::chrono::high_resolution_clock::now();
 }
 
-int elapsed(std::chrono::_V2::system_clock::time_point lastDate)
+int elapsed(std::chrono::system_clock::time_point  lastDate)
 {
     using namespace std::chrono;
     auto now = high_resolution_clock::now();
