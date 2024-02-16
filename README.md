@@ -14,5 +14,13 @@ To install Gestures-X11, clone the repository and compile the project:
 ```bash
 git clone https://github.com/jabobon1/gestures-x11.git
 cd gestures-x11
+# builds the program in build/ directory
 make
+# moves binary file to /usr/local/bin/ and creates gestures-x11.service # file for systemd
+make install
+```
+### After instalation don't forget to start the service: 
+```bash
+sudo systemctl enable gestures-x11.service # to enable the service
+sudo systemctl start gestures-x11.service # to start the service
 ```

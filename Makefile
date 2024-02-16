@@ -43,3 +43,24 @@ $(BUILDDIR)/%.o: source/%.cpp
 
 clean:
 	$(RM) -r $(BUILDDIR)
+
+
+PREFIX=/usr/local
+BINDIR=$(PREFIX)/bin
+SERVICEDIR=/etc/systemd/system
+SERVICEFILE=gestures-x11.service
+USER=$(shell whoami)
+DISPLAY=$(shell echo $$DISPLAY)
+
+
+install:
+	@sudo cp ./build/gesture_monitor $(BINDIR)/
+	@# Replace placeholders and move the service file
+	@sed 's/{user}/${USER}/g; s/{display}/${DISPLAY}/g' $(SERVICEFILE) | sudo tee $(SERVICEDIR)/$(SERVICEFILE) > /dev/null
+	@# Ensure the service file has the correct permissions
+	@sudo chmod 644 $(SERVICEDIR)/$(SERVICEFILE)
+	@# Reload systemd to recognize the new service
+	@sudo systemctl daemon-reload
+	@# Optionally enable and start the service
+	@echo "Please run 'sudo systemctl enable $(SERVICEFILE)' to enable the service."
+	@echo "Then, you can start the service with 'sudo systemctl start $(SERVICEFILE)'."

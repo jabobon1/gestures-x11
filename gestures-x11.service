@@ -1,0 +1,14 @@
+[Unit]
+Description=Gesture Monitor Service
+After=display-manager.service
+
+[Service]
+Type=simple
+User={user}
+Restart=on-failure
+Environment="DISPLAY=:{display}"
+Environment="XAUTHORITY=/home/{user}/.Xauthority"
+ExecStart=/usr/local/bin/gesture_monitor
+
+[Install]
+WantedBy=graphical.target
