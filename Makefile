@@ -1,6 +1,9 @@
 # Define the compiler
 CXX = g++
 
+# Define the build directory
+BUILDDIR = build
+
 # Define any compile-time flags
 CXXFLAGS = -Wall -g
 
@@ -18,16 +21,25 @@ LIBS = -linput -ludev -lX11 -lXtst
 # Add source/functions.cpp to the list of source files
 SRCS = src/GesturesMonitor.cpp src/functions.cpp
 
+# Define object files based on source files
+OBJS = $(SRCS:source/%.cpp=$(BUILDDIR)/%.o)
+
 # Define the executable file name
-MAIN = gesture_monitor
+MAIN = $(BUILDDIR)/gesture_monitor
+
 
 .PHONY: clean
 
-all:    $(MAIN)
+all: $(MAIN)
 	@echo Gesture monitor has been compiled
 
-$(MAIN): $(SRCS)
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(MAIN) $(SRCS) $(LFLAGS) $(LIBS)
+$(MAIN): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+
+# Pattern rule for object files
+$(BUILDDIR)/%.o: source/%.cpp
+	@mkdir -p $(BUILDDIR)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	$(RM) *.o *~ $(MAIN)
+	$(RM) -r $(BUILDDIR)
