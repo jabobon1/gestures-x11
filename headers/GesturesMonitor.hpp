@@ -2,7 +2,7 @@
 #include <libudev.h>
 #include <X11/extensions/XTest.h>
 #include <poll.h>
-#include <../headers/functions.hpp>
+#include <./functions.hpp>
 
 #ifndef GESTURES_MONITOR_HPP
 #define GESTURES_MONITOR_HPP
