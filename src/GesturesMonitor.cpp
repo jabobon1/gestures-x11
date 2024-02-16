@@ -5,8 +5,8 @@
 #include <X11/extensions/XTest.h>
 #include <X11/keysym.h>
 #include <poll.h>
-#include <../headers/functions.hpp>
-#include <../headers/GesturesMonitor.hpp>
+#include <../include/functions.hpp>
+#include <../include/GesturesMonitor.hpp>
 
 void SwipeButtonPressed::pressButton(Display *display, bool isLeft)
 {

@@ -10,7 +10,7 @@
 #include <X11/keysym.h>
 #include <initializer_list>
 #include <vector>
-#include <../headers/functions.hpp>
+#include <../include/functions.hpp>
 
 std::chrono::_V2::system_clock::time_point getDateNow()
 {

@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -g
 
 # Define any directories containing header files other than /usr/include
 # Add the headers/ directory to the include path
-INCLUDES = -Iheaders/
+INCLUDES = -Iinclude/
 
 # Define library paths in addition to /usr/lib
 LFLAGS =
@@ -16,7 +16,7 @@ LIBS = -linput -ludev -lX11 -lXtst
 
 # Define the source file(s)
 # Add source/functions.cpp to the list of source files
-SRCS = source/GesturesMonitor.cpp source/functions.cpp
+SRCS = src/GesturesMonitor.cpp src/functions.cpp
 
 # Define the executable file name
 MAIN = gesture_monitor
