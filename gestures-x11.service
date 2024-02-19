@@ -6,7 +6,7 @@ After=display-manager.service
 Type=simple
 User={user}
 Restart=on-failure
-Environment="DISPLAY=:{display}"
+Environment="DISPLAY={display}"
 Environment="XAUTHORITY=/home/{user}/.Xauthority"
 ExecStart=/usr/local/bin/gesture_monitor
 
